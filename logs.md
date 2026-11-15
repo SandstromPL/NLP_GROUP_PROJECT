@@ -14,12 +14,41 @@ Newest entries first. Add one entry per work session, and one row per training o
 
 ---
 
+### 2026-11-16: Paritosh (with Claude Code), the saved MuRIL model checked on a second machine
+- **Did:** Pulled `d32a40f` into the local clone. The only conflict was in `logs.md`: the 15 Nov and 16 Nov entries were both added at the top, and both are kept.
+- **Did:** Unzipped `muril-synfull-s42-model.zip` (841 MB, shared on Google Drive; safetensors only) into `models/muril-synfull-s42`, which git ignores. Installed the `train` and `demo` extras at the locked versions (torch 2.15.0+cu132, transformers 5.22.2, gradio 6.31.0). Only 15 small packages had to be downloaded; the rest came from the uv cache.
+- **Checked (RTX 3050 Ti, 4 GB):**
+  - The committed `data/synthetic/full` is byte-identical to `full` regenerated here with seed 42.
+  - The saved model predicts exactly the committed tags of `20261116-muril-synfull-hand20-s42` (20 of 20 addresses) and `20261116-muril-synfull-dev-s42` (2,000 of 2,000; 0 of 51,556 tokens differ), so every score in both results files comes out the same. Prediction took 7.0 s for the 2,000 addresses: the 4 GB card can run the model but not train it. The check runs were written to a scratch folder; nothing in `results/` changed.
+  - All 245 tests pass, including the 5 torch test files that could not run on 15 Nov and the GPU mixed-precision test.
+  - `app.demo --model models/muril-synfull-s42` starts and parses the example address. It misses `flat 3b` (no HOUSE) and tags `supela bhilai` as one locality, so the city is left empty.
+- **Did:** `.gitignore` keeps the form answers out of git until they are labelled (rule 1), because `d32a40f` had un-ignored `data/raw/` and a `form.csv` in the root was never ignored. It now ignores `data/raw/` again except `pincode.csv`; `form*.csv` and `*[Rr]esponses*.csv` anywhere; and `data/real/tasks_*.json`, which hold the same unscreened addresses and can be rebuilt from the CSV and `splits.json`. `GUIDELINES.md` and `src/annotate.py` now save the export as `data/raw/form.csv`. Checked with `git add -A --dry-run` on empty files at each path: only `data/real/splits.json` and `data/real/dev.jsonl` would be added, and no tracked file is affected.
+- **Did:** `report/report.md` collects the report content. Every number comes from `results/`. `report/tables/` was regenerated with `scripts/make_tables.py`, so it now includes the 16 Nov MuRIL run, and `report/figures/demo-muril.jpg` is a screenshot of the demo with that model.
+- **Decided:** submit by 16 Nov, 5 pm IST with the current state: no real data and no further runs (row in `initials.md` §13; the deadline is filled in there).
+- **Noticed:** the run table's timing notes for the two L1 runs (11.1 s and 6.7 s) come from their first run. The results files, rewritten at the 11 Nov review, say 11.3 s and 7.1 s; the report uses the results files.
+- **Did:** Hugging Face deployment, ready but not yet uploaded. `scripts/publish_hf.py` uploads the saved MuRIL model as a model repo, with its card (`deploy/huggingface/model/README.md`), and the demo as a Gradio Space (`deploy/huggingface/space/`) that loads the model by name. `--model-only` uploads a new model version and restarts the Space; `--dry-run` lists what would go up (model 954.4 MB in 5 files; Space 12.7 MB in 23 files).
+- **Checked:** the Space, staged exactly as it would be uploaded, starts in 7 s against the saved model and returns the same output as the local demo; the usage snippet in the model card runs. Nothing is uploaded until someone runs `uv run hf auth login`.
+- **Did (Paritosh):** ran `scripts/publish_hf.py --tag v1`. The model is public: https://huggingface.co/sandstromPL/muril-indian-address-parser (Apache-2.0, commit `0449645`, tag `v1`). The Space was refused with `402 Payment Required`: Gradio and Docker Spaces, even on the free CPU hardware, need a PRO subscription ($9 a month on the pricing page, 16 Nov); only static Spaces are free. The script now stops with that message instead of a traceback.
+- **Decided:** the presentation uses the local demo; the model page is the public artefact, and Vercel is out (row in `initials.md` §13). No PRO, so there is no public demo page.
+- **Did:** the model card no longer links to the missing Space (commit `bae54bd`; the weights and tag `v1` are unchanged, and the `v1` snapshot keeps the old card text). `scripts/publish_hf.py --card-only` uploads the card alone.
+- **Next:** fill in the team contributions (`report/report.md` §16); get the `.gitignore` change, the report and the publish script into the team repo.
+
 ### 2026-11-16 (00:15–00:30): Claude Code, a saved MuRIL model and the data in git
 - **Did:** trained MuRIL once more on synthetic `full` (seed 42, the fixed settings) with `--save-dir models/muril-synfull-s42`, because no earlier run kept its weights. The folder (905 MB) stays out of git: GitHub refuses files over 100 MB. It is shared as a zip.
 - **Did:** `data/raw/` and `data/synthetic/` (`clean` and `full`, 63 MB together) are now committed, so a teammate has the exact training files without regenerating them. The ten tuning prediction files of 11 Nov are committed too.
 - **Did (11 Nov, not logged then):** `scripts/run_experiments.sh` no longer uses `${array[-1]}`, which macOS's bash 3.2 rejects (commit `7369d38`).
 - **Results:** `20261116-muril-synfull-dev-s42` and `20261116-muril-synfull-hand20-s42` in the run table. Synthetic dev 0.991, against 0.990 for the 11 Nov run at the same settings.
 - **Next:** unchanged: real data.
+
+### 2026-11-15: Paritosh (with Claude Code), status review and reproduction check
+- **Did:** Read every doc and all the code in `src/`, `app/` and `scripts/` to take stock. The local clone, `origin` and `upstream` are all at `7369d38`.
+- **Checked on a second machine (Python 3.12.3; base dependencies from `uv sync`, plus `sklearn-crfsuite` 0.5.0; no PyTorch):**
+  - All 201 tests that do not need PyTorch pass. `test_transformer`, `test_zeroshot`, `test_llm`, `test_make_tables` and `test_demo` need the `train` extra, a download of several GB (rule 7), and were not run.
+  - `full` regenerated with seed 42. Rules on hand20 (0.828), the CRF on hand20 (0.796) and on synthetic dev (0.992), and the normaliser on synthetic dev (PIN valid 1,376, missing 377, not found 244, mismatch 3) give exactly the numbers in the run table. The check runs were written to a scratch folder; nothing in `results/` changed.
+- **Problems:**
+  - This laptop's GPU (RTX 3050 Ti, 4 GB) is too small to fine-tune MuRIL or XLM-R (XLM-R peaked at 7.2 GB on the 8 GB card). The 48 runs need the RTX 4060 or Colab / Kaggle.
+  - Still open: the deadline, the form (not sent), and the team decisions in `initials.md` §12.
+- **Next:** Fill in the deadline and send the form.
 
 ### 2026-11-11 (03:56–04:00): Claude Code, faster bootstrap
 - **Did (tests first):** `src/eval.span_scorer` no longer asks seqeval to rescore every resample. seqeval's strict IOB2 reader extracts the spans once, three counts are kept per address (right, wrong, missed), and a resample adds them up.
