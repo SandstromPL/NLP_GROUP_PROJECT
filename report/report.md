@@ -547,7 +547,7 @@ uv run python -m app.demo --model models/muril-synfull-s42
 ```
 
 The saved MuRIL model is not in git (GitHub refuses files over 100 MB). It is on Hugging Face
-(`sandstromPL/muril-indian-address-parser`, tag `v1`), and `scripts/publish_hf.py --model-only` uploads new versions.
+(`sandstromPL/muril-indian-address-parser`, tag `v1`), and `scripts/publish_hf.py` uploads new versions.
 To run the demo with it, unzip `muril-synfull-s42-model.zip` into `models/`.
 
 ## 14. Licences and attribution

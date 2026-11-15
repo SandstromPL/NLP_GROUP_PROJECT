@@ -31,6 +31,7 @@ Newest entries first. Add one entry per work session, and one row per training o
 - **Did (Paritosh):** ran `scripts/publish_hf.py --tag v1`. The model is public: https://huggingface.co/sandstromPL/muril-indian-address-parser (Apache-2.0, commit `0449645`, tag `v1`). The Space was refused with `402 Payment Required`: Gradio and Docker Spaces, even on the free CPU hardware, need a PRO subscription ($9 a month on the pricing page, 16 Nov); only static Spaces are free. The script now stops with that message instead of a traceback.
 - **Decided:** the presentation uses the local demo; the model page is the public artefact, and Vercel is out (row in `initials.md` §13). No PRO, so there is no public demo page.
 - **Did:** the model card no longer links to the missing Space (commit `bae54bd`; the weights and tag `v1` are unchanged, and the `v1` snapshot keeps the old card text). `scripts/publish_hf.py --card-only` uploads the card alone.
+- **Did:** removed the Space files (`deploy/huggingface/space/`) and the Space code from `scripts/publish_hf.py`: the demo runs locally, so they are not needed. The script now uploads the model and its card, a new version (`--model-dir`, `--tag`), or the card alone (`--card-only`).
 - **Next:** fill in the team contributions (`report/report.md` §16); get the `.gitignore` change, the report and the publish script into the team repo.
 
 ### 2026-11-16 (00:15–00:30): Claude Code, a saved MuRIL model and the data in git
