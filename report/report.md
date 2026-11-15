@@ -1,6 +1,6 @@
-# Near Hanuman Mandir: Parsing and Normalising Messy Indian Addresses
+# Indian Address Parser: Parsing and Normalising Messy Indian Addresses
 
-**Group 10** · DSL504 / DS504 Natural Language Processing · IIT Bhilai · Jul–Nov 2026
+**Group 10** · DSL504 (Natural Language Processing) · IIT Bhilai · Oct–Nov 2026
 Agastya Nath · Y. Rahul Dev Reddy · Paritosh Lahre · Varun Rao
 Report content collected on 16 Nov 2026 (submission deadline: 16 Nov 2026, 5 pm IST)
 
