@@ -1,3 +1,13 @@
+# Raw downloads stay out of git, except the India Post directory the gazetteer is built from
+data/raw/*
+!data/raw/pincode.csv
+
+# Form answers nobody has screened yet (data/real/GUIDELINES.md): the export, and the Label Studio tasks made from it.
+# Either can hold a home address, a name or a phone number. The tasks are rebuilt from the CSV and data/real/splits.json
+form*.csv
+*[Rr]esponses*.csv
+data/real/tasks_*.json
+
 /models/
 .venv/
 __pycache__/
