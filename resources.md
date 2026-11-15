@@ -77,6 +77,9 @@ The master list of external links. Add every new link to its section; if a link 
 | Gradio 6.31 | https://github.com/gradio-app/gradio | The demo page (`app/demo.py`); Apache-2.0 (package metadata) | installed and run on 11 Nov 2026 |
 | doccano | https://github.com/doccano/doccano | Annotation (alternative) | loads |
 | Hugging Face token-classification guide | https://huggingface.co/docs/transformers/tasks/token_classification | Fine-tuning recipe | loads |
+| Vercel Functions limits | https://vercel.com/docs/functions/limitations | Why the demo is not hosted on Vercel: 2 GB memory, no GPU, 300 s per request on the free plan; Python bundles up to 500 MB (5 GB in beta) | read (16 Nov 2026) |
+| Our MuRIL model on Hugging Face | https://huggingface.co/sandstromPL/muril-indian-address-parser | The saved demo model (tag `v1`), uploaded by `scripts/publish_hf.py`; Apache-2.0 | published 16 Nov 2026 |
+| Hugging Face pricing | https://huggingface.co/pricing | A Gradio Space needs PRO ($9 a month); static Spaces are free. Our Space was refused on a free account (402) | read (16 Nov 2026) |
 
 ## 8. Context: India's digital addressing
 | Resource | Link | Check |

@@ -2,7 +2,7 @@
 
 Group 10 · DSL504 / DS504 NLP · IIT Bhilai · Jul–Nov 2026
 Team: Agastya Nath · Y. Rahul Dev Reddy · Paritosh Lahre · Varun Rao
-Created 10 Nov 2026 · Final deadline: **____ (fill in)**
+Created 10 Nov 2026 · Final deadline: **16 Nov 2026, 5 pm IST**
 
 ## 1. Problem
 Indian addresses rarely follow a fixed format. They lean on landmarks, abbreviations, mixed scripts, transliterated words and free ordering, often with missing commas:
@@ -162,7 +162,7 @@ Hyperparameters and the number of epochs are fixed once, on the full-noise confi
 - **Everyone:** annotation, report, slides.
 
 ## 12. Open decisions
-- [ ] Final deadline and presentation format.
+- [ ] Final deadline and presentation format. Deadline (16 Nov): 16 Nov 2026, 5 pm IST. The format is still open.
 - [x] Script scope (provisional, 10 Nov): core = Roman script and Hinglish; Devanagari items are kept in the test set as a slice; N6 is a spelling-variant table, not a transliteration model.
 - [ ] Which 3–5 cities do we take OSM names from? Needed before E2–E4: place, landmark and building names are still hand-written lists of 20–40 items (build-plan C2). City and street names now come from the PIN directory.
 - [ ] Place-name prefix rate. Every synthetic address now starts with a place name, but the form asks for the name separately, so many real addresses will not repeat it. Proposed: no change until real dev shows how often the name is repeated (17 of the 20 hand-written items have it), then prefix at that rate (build-plan C1).
@@ -209,6 +209,8 @@ Hyperparameters and the number of epochs are fixed once, on the full-noise confi
 | 11 Nov 2026 | *Provisional.* Demo: Gradio, run locally; CRF by default (no GPU), rules or a saved transformer on request; it stores nothing typed into it. | The plan named Gradio or Streamlit; Gradio has a highlighted-text view. Privacy (rule 1). |
 | 11 Nov 2026 | *Provisional.* L1 = `Qwen/Qwen2.5-1.5B-Instruct`, few-shot, with a prompt in our nine labels that asks for text copied exactly as written; examples drawn with a seed from a file that must not overlap the eval set. | An open, ungated model that fits a free T4, and the base of the abr-6024 parser, so E6 compares few-shot against fine-tuned on one base. Verbatim copying keeps field scoring fair (C6). |
 | 11 Nov 2026 | *Provisional, after the third review.* Only train-split records may be trained on or shown as few-shot examples; the code refuses anything else. In the tables a repeated run counts once (the newest). Our systems are compared with an existing one by that system's own scoring rules, with the city-or-district key counted once on both sides. A span of punctuation alone is not a field. | Rule 2; a `--final` run trains again; fairness in both directions (C6). |
+| 16 Nov 2026 | Submit by 16 Nov 2026, 5 pm IST with the current state. No real data was collected, so every result is on synthetic data or the hand20 smoke set, and no further runs are made. Report content in `report/report.md`. | The deadline. The real-data study (§5.3, §7) becomes future work in the report. |
+| 16 Nov 2026 | The presentation runs the demo locally. The saved MuRIL model is public on Hugging Face (`sandstromPL/muril-indian-address-parser`, tag `v1`, uploaded with `scripts/publish_hf.py`). No public demo page for now: Vercel cannot run it, and a Gradio Space needs a paid PRO account. | Vercel functions on the free plan have 2 GB of memory, no GPU and a 300 s limit, and Gradio needs a server that stays up. Hugging Face refused the Space on a free account (402: only static Spaces are free). The model repo keeps every version. |
 
 ## 14. Class spreadsheet entry (paste into Group 10's row: sheet row 51)
 **Title:** Near Hanuman Mandir: Parsing and Normalising Messy Indian Addresses

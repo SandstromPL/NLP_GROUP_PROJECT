@@ -1,6 +1,6 @@
 """Real-data annotation plumbing: form CSV -> Label Studio tasks, Label Studio export -> our JSONL, agreement.
 
-    uv run python -m src.annotate tasks --csv form.csv --out data/real            # split by respondent, dedupe by place
+    uv run python -m src.annotate tasks --csv data/raw/form.csv --out data/real   # split by respondent, dedupe by place
     uv run python -m src.annotate export --export ls_export.json --out data/real/dev.jsonl [--annotator 2]
     uv run python -m src.annotate agreement a.jsonl b.jsonl                        # span F1 + token kappa on shared ids
 
