@@ -83,17 +83,6 @@ Hypotheses: **H1** everything trained only on clean synthetic data drops sharply
 LOCALITY and LANDMARK; **H2** landmark and abbreviation noise give the biggest gains, and transliteration noise matters
 mostly for code-mixed addresses; **H3** about 100 real examples help more than doubling the synthetic data.
 
-### 1.4 Contributions
-1. A synthetic address generator built on real geography, with eight noise families that can each be switched off
-   (`src/generate/`).
-2. One evaluation harness for very different systems: BIO taggers, existing taggers with other label sets, and
-   JSON-output generators, compared on shared labels by explicit fairness rules (`src/eval/`, `scripts/make_tables.py`).
-3. Baselines and models: rules, CRF, MuRIL, XLM-R; five existing open parsers and an LLM run zero-shot or few-shot.
-4. A PIN-directory normaliser that validates and fills district and state (`src/normalize/`).
-5. A complete, privacy-aware annotation pipeline for a human-written test set of public-place addresses
-   (`data/real/GUIDELINES.md`, `data/real/labelstudio_config.xml`, `src/annotate.py`).
-6. Preliminary results on synthetic data and a 20-address smoke set (§7), and a demo (§9).
-
 ## 2. Related work
 
 **Closest work: Dhavase & Chaudhary (2026), ETASR.** They train IndicBERT, MuRIL, DeBERTa-v3 and XLM-R (3 seeds each)
