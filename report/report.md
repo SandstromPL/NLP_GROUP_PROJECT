@@ -594,17 +594,6 @@ Entries marked † were link-checked but not read in full (`resources.md`); read
 20. This project's model: MuRIL fine-tuned on synthetic `full`, tag `v1`.
     https://huggingface.co/sandstromPL/muril-indian-address-parser
 
-## 16. Team contributions
-*(Team to fill in. The roles suggested in `initials.md` §11 were data lead, generator lead, modelling lead, and
-evaluation and demo lead.)*
-
-| Member | Contributions |
-|---|---|
-| Agastya Nath | |
-| Y. Rahul Dev Reddy | |
-| Paritosh Lahre | |
-| Varun Rao | |
-
 ## Appendix A: the runs behind each table
 All files are in `results/`; every run has a row in the `logs.md` run table.
 

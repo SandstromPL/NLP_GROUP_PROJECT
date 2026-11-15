@@ -40,7 +40,8 @@ Newest entries first. Add one entry per work session, and one row per training o
 - **Did:** report redesigned (17 pages). The title now matches the README (which Paritosh updated): "Indian Address Parser: Parsing and Normalising Messy Indian Addresses", project duration October–November 2026. Added a title page with Name and Reg. No., an abstract with keywords and a results box, contents and lists of tables and figures, running headers with "Page x of y", Appendix A (the runs behind each table) and Appendix B (the stress-test result for each address, generated from the outputs file). `report.md` has the same title and dates.
 - **Did:** the submission ZIP rebuilt with the trained model (`source_code/models/muril-synfull-s42`, 948 MB): 895 MB zipped, 138 files. Checked as before: all 136 project and model files are identical to the repo, 245 tests pass from inside the copy, and there are no secrets, email addresses or phone numbers.
 - **Noticed:** the only failing check on PR #1 is Vercel ("Authorization required to deploy"). The team repo is linked to a Vercel team, which wants a member to approve deployments from forks; there is nothing in this project for Vercel to deploy. Nothing changed: the owner can ignore it (it does not block the merge) or disconnect Vercel from the repo.
-- **Next:** one member submits the ZIP; fill in the team contributions if the course asks for them; merge PR #1 in the team repo.
+- **Did:** removed an unused placeholder section (§16) from `report/report.md`.
+- **Next:** one member submits the ZIP; merge PR #1 in the team repo.
 
 ### 2026-11-16 (00:15–00:30): Claude Code, a saved MuRIL model and the data in git
 - **Did:** trained MuRIL once more on synthetic `full` (seed 42, the fixed settings) with `--save-dir models/muril-synfull-s42`, because no earlier run kept its weights. The folder (905 MB) stays out of git: GitHub refuses files over 100 MB. It is shared as a zip.
