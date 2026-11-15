@@ -1,0 +1,21 @@
+{
+ "config": "full",
+ "seed": 42,
+ "counts": {
+  "train": 20000,
+  "dev": 2000,
+  "test": 2000
+ },
+ "switches": {
+  "N1": true,
+  "N2": true,
+  "N3": true,
+  "N4": true,
+  "N5": true,
+  "N6": true,
+  "N7": true,
+  "N8": true
+ },
+ "gazetteer_rows": 157126,
+ "gazetteer_sha256": "9f97883c14cd6d11e10377c308dcfb51e0c9c190ff900edf8d8143985a25fd78"
+}

@@ -1,0 +1,21 @@
+{
+ "config": "clean",
+ "seed": 42,
+ "counts": {
+  "train": 20000,
+  "dev": 2000,
+  "test": 2000
+ },
+ "switches": {
+  "N1": false,
+  "N2": false,
+  "N3": false,
+  "N4": false,
+  "N5": false,
+  "N6": false,
+  "N7": false,
+  "N8": false
+ },
+ "gazetteer_rows": 157126,
+ "gazetteer_sha256": "9f97883c14cd6d11e10377c308dcfb51e0c9c190ff900edf8d8143985a25fd78"
+}
