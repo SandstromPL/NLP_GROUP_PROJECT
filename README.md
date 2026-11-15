@@ -3,6 +3,7 @@
 **Parsing and normalising messy Indian addresses**
 Group 10 · DSL504 (Natural Language Processing) · IIT Bhilai · Oct–Nov 2026
 Agastya Nath · Paritosh Lahre · Varun Rao · Y. Rahul Dev Reddy
+Course instructor: Dr. Soumajit Pramanik
 
 ## About this project
 

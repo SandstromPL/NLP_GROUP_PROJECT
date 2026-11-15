@@ -41,6 +41,7 @@ Newest entries first. Add one entry per work session, and one row per training o
 - **Did:** the submission ZIP rebuilt with the trained model (`source_code/models/muril-synfull-s42`, 948 MB): 895 MB zipped, 138 files. Checked as before: all 136 project and model files are identical to the repo, 245 tests pass from inside the copy, and there are no secrets, email addresses or phone numbers.
 - **Noticed:** the only failing check on PR #1 is Vercel ("Authorization required to deploy"). The team repo is linked to a Vercel team, which wants a member to approve deployments from forks; there is nothing in this project for Vercel to deploy. Nothing changed: the owner can ignore it (it does not block the merge) or disconnect Vercel from the repo.
 - **Did:** removed §1.4 and an unused placeholder section (§16) from `report/report.md`.
+- **Did:** added the course instructor, Dr. Soumajit Pramanik, to the report's title page ("Submitted to"), to `report/report.md` and to the README.
 - **Next:** one member submits the ZIP; merge PR #1 in the team repo.
 
 ### 2026-11-16 (00:15–00:30): Claude Code, a saved MuRIL model and the data in git

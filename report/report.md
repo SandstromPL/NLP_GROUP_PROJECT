@@ -2,6 +2,7 @@
 
 **Group 10** · DSL504 (Natural Language Processing) · IIT Bhilai · Oct–Nov 2026
 Agastya Nath · Y. Rahul Dev Reddy · Paritosh Lahre · Varun Rao
+Course instructor: Dr. Soumajit Pramanik
 Report content collected on 16 Nov 2026 (submission deadline: 16 Nov 2026, 5 pm IST)
 
 > **How to read this file.** It collects the content for the report and the slides. Every number is copied from a
