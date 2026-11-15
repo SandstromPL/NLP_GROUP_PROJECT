@@ -25,6 +25,7 @@ uv run python -m src.generate --config full --seed 42      # synthetic data
 uv run python -m app.demo --model rules                    # demo page
 scripts/run_experiments.sh --dry-run                       # list the planned experiment runs
 uv run python -m scripts.make_tables                       # report tables from results/
+uv run python -m scripts.publish_hf --dry-run              # what the Hugging Face model and Space would contain
 ```
 
 ## Where things are
